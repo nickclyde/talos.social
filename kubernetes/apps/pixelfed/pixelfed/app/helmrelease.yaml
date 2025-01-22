@@ -21,6 +21,8 @@ spec:
     remediation:
       retries: 3
   values:
+    image:
+      tag: dev-nginx
     ingress:
       enabled: true
       className: external
