@@ -41,7 +41,7 @@ spec:
         domain: "pixelfed.talos.social"
       stories_enabled: true
       instance:
-        contact_email: ${SECRET_ACME_EMAIL}
+        contact_email: "${SECRET_ACME_EMAIL}"
       activity_pub:
         enabled: true
         remote_follow: true
@@ -50,7 +50,7 @@ spec:
         sharedInbox: true
         logger_enabled: true
       mail:
-        from_address: ${SECRET_ACME_EMAIL}
+        from_address: "${SECRET_ACME_EMAIL}"
         existingSecret: cluster-secrets
         existingSecretKey:
           host: SECRET_MAIL_SERVER
