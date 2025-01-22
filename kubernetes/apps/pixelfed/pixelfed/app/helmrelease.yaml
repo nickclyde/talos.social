@@ -50,8 +50,12 @@ spec:
       mail:
         from_address: pixelfed@talos.social
         existingSecret: pixelfed-secrets
-        existingSecretKey:
+        existingSecretKeys:
           host: SECRET_MAIL_SERVER
           port: SECRET_MAIL_PORT
           username: SECRET_MAIL_USERNAME
           password: SECRET_MAIL_PASSWORD
+    postgresql:
+      enabled: true
+      global:
+        storageClass: openebs-hostpath
