@@ -40,8 +40,6 @@ spec:
         url: "https://pixelfed.talos.social"
         domain: "pixelfed.talos.social"
       stories_enabled: true
-      instance:
-        contact_email: pixelfed@talos.social
       activity_pub:
         enabled: true
         remote_follow: true
