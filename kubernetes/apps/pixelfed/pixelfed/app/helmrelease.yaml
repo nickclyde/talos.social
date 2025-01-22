@@ -34,7 +34,7 @@ spec:
     pixelfed:
       timezone: "America/Los_Angeles"
       app:
-        existingSecret: cluster-secrets
+        existingSecret: pixelfed-secrets
         existingSecretKey: SECRET_PIXELFED_KEY
         name: "Pixelfed - talos.social"
         url: "https://pixelfed.talos.social"
@@ -49,7 +49,7 @@ spec:
         logger_enabled: true
       mail:
         from_address: pixelfed@talos.social
-        existingSecret: cluster-secrets
+        existingSecret: pixelfed-secrets
         existingSecretKey:
           host: SECRET_MAIL_SERVER
           port: SECRET_MAIL_PORT
