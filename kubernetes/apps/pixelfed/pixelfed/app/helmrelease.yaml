@@ -1,0 +1,59 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: pixelfed
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: pixelfed
+      version: 0.14.3
+      sourceRef:
+        kind: HelmRepository
+        name: pixelfed
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  values:
+    ingress:
+      enabled: true
+      className: external
+      hosts:
+        - host: pixelfed.talos.social
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+    autoscaling:
+      enabled: true
+    pixelfed:
+      timezone: "America/Los_Angeles"
+      app:
+        existingSecret: cluster-secrets
+        existingSecretKey: SECRET_PIXELFED_KEY
+        name: "Pixelfed - talos.social"
+        url: "https://pixelfed.talos.social"
+        domain: "pixelfed.talos.social"
+      stories_enabled: true
+      instance:
+        contact_email: ${SECRET_ACME_EMAIL}
+      activity_pub:
+        enabled: true
+        remote_follow: true
+        inbox: true
+        outbox: true
+        sharedInbox: true
+        logger_enabled: true
+      mail:
+        from_address: ${SECRET_ACME_EMAIL}
+        existingSecret: cluster-secrets
+        existingSecretKey:
+          host: SECRET_MAIL_SERVER
+          port: SECRET_MAIL_PORT
+          username: SECRET_MAIL_USERNAME
+          password: SECRET_MAIL_PASSWORD
