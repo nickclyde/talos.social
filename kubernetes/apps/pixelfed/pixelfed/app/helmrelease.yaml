@@ -44,13 +44,6 @@ spec:
         url: "https://pixelfed.talos.social"
         domain: "pixelfed.talos.social"
       stories_enabled: true
-      activity_pub:
-        enabled: true
-        remote_follow: true
-        inbox: true
-        outbox: true
-        sharedInbox: true
-        logger_enabled: true
       mail:
         from_address: pixelfed@talos.social
         existingSecret: pixelfed-secrets
