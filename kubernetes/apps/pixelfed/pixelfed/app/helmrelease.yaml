@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: pixelfed
-      version: 0.14.3
+      version: 0.19.0
       sourceRef:
         kind: HelmRepository
         name: pixelfed
@@ -43,6 +43,8 @@ spec:
         name: "Pixelfed - talos.social"
         url: "https://pixelfed.talos.social"
         domain: "pixelfed.talos.social"
+      instance:
+        public_discover: true
       stories_enabled: true
       mail:
         from_address: pixelfed@talos.social
@@ -56,3 +58,10 @@ spec:
       enabled: true
       global:
         storageClass: openebs-hostpath
+    activity_pub:
+      enabled: true
+      remote_follow: true
+    persistence:
+      enabled: true
+      storageClassName: openebs-hostpath
+      storage: 100Gi
