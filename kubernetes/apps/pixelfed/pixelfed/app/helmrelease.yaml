@@ -7,7 +7,7 @@ spec:
   interval: 30m
   chart:
     spec:
-      chart: pixelfed
+      chart: charts/pixelfed
       version: 0.19.1
       sourceRef:
         kind: GitRepository
