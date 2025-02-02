@@ -7,10 +7,10 @@ spec:
   interval: 30m
   chart:
     spec:
-      chart: charts/pixelfed
+      chart: pixelfed
       version: 0.19.1
       sourceRef:
-        kind: GitRepository
+        kind: HelmRepository
         name: pixelfed
         namespace: flux-system
   install:
